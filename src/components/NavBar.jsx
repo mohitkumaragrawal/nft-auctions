@@ -12,7 +12,9 @@ import WalletBalance from "./WalletBalance";
 export default function MyNavBar() {
   return (
     <Navbar>
-      <NavbarBrand>NFT Auction</NavbarBrand>
+      <NavbarBrand>
+        <span className="text-lg font-semibold">NFT Auction</span>
+      </NavbarBrand>
       <NavbarContent justify="center">
         <WalletBalance />
       </NavbarContent>

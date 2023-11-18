@@ -34,12 +34,15 @@ function Home() {
   }
 
   return (
-    <main className="dark bg-background text-foreground">
-      <MyNavBar />
-
+    <main>
       <div className="flex flex-wrap gap-3 mx-auto max-w-6xl items-center justify-center py-10">
         {minted.map((idx) => (
-          <NFTImage key={idx} tokenId={idx} handleMint={handleMint} />
+          <NFTImage
+            key={idx}
+            tokenId={idx}
+            handleMint={handleMint}
+            canAuction={true}
+          />
         ))}
       </div>
     </main>

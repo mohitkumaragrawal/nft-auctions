@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 
 import { IPFS_CONTENT_ID, NFT_CONTRACT_ADDRESS } from "../environment";
+import { Link } from "react-router-dom";
 
 const contractAddress = NFT_CONTRACT_ADDRESS;
 const provider = new ethers.BrowserProvider(window.ethereum);
@@ -21,7 +22,7 @@ const provider = new ethers.BrowserProvider(window.ethereum);
 const signer = await provider.getSigner();
 const contract = new ethers.Contract(contractAddress, FireMen.abi, signer);
 
-export default function NFTImage({ tokenId, handleMint }) {
+export default function NFTImage({ tokenId, handleMint, canAuction }) {
   const contentId = IPFS_CONTENT_ID;
   const metadataURI = `${contentId}/${tokenId}.json`;
 
@@ -31,7 +32,7 @@ export default function NFTImage({ tokenId, handleMint }) {
 
   useEffect(() => {
     getMintedStatus();
-  }, [isMinted]);
+  }, [isMinted, tokenId]);
 
   const getMintedStatus = async () => {
     const result = await contract.isContentOwned(metadataURI);
@@ -90,7 +91,11 @@ export default function NFTImage({ tokenId, handleMint }) {
           <Button className="w-full" onClick={getUri}>
             Taken! Show URI
           </Button>
-          <Button>Auction</Button>
+          {canAuction && (
+            <Link to={`/startAuction/${tokenId}`}>
+              <Button>Auction</Button>
+            </Link>
+          )}
         </CardFooter>
       </Card>
     );
