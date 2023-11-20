@@ -1,8 +1,18 @@
-# React + Vite
+# NFT Auctions
+Implmentation of a transparent and decentralized english auction system using blockchain technology.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Technology Used
+- Hardhat
+- Solidity
+- IPFS
+- React.js
+- Ethers.js
+- TailwindCSs
+- NextUI
+- OpenZeppelin
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Contracts
+
+**EnglishAuction**: Implements a simple auction smart contract, that transfers the token to the highest bidder.
+**FireMen**: A NFT smart contract for the demonstration purposes;
